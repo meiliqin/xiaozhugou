@@ -9,7 +9,7 @@ import '../pages/GoodDetailPage.dart';
 import '../widgets/CommonEndLine.dart';
 import '../model/GoodItem.dart';
 import '../widgets/SlideViewIndicator.dart';
-import 'package:flutter_osc/util/ThemeUtils.dart';
+import 'package:flutter_buy/util/ThemeUtils.dart';
 import '../widgets/CatView.dart';
 
 class TaobaoPage extends StatefulWidget {
@@ -37,15 +37,15 @@ class TaobaoPageState extends State<TaobaoPage> {
         // scroll to bottom, get next page data
 //        print("load more ... ");
         curPage++;
-        getNewsList(true);
+        getDataList(true);
       }
     });
-    getNewsList(false);
+    getDataList(false);
   }
 
   Future<Null> _pullToRefresh() async {
     curPage = 1;
-    getNewsList(false);
+    getDataList(false);
     return null;
   }
 
@@ -69,7 +69,7 @@ class TaobaoPageState extends State<TaobaoPage> {
   }
 
   // 从网络获取数据，isLoadMore表示是否是加载更多数据
-  getNewsList(bool isLoadMore) {
+  getDataList(bool isLoadMore) {
     String url = Api.TAO_BAO_LIST;
     url += "&page=$curPage";
     NetUtils.get(url).then((data) {
@@ -140,6 +140,7 @@ class TaobaoPageState extends State<TaobaoPage> {
       ]);
     }
     i -= 1;
+    //是否奇数
     if (!i.isOdd) {
       return new Divider(height: 1.0);
     }
@@ -256,19 +257,4 @@ class TaobaoPageState extends State<TaobaoPage> {
       },
     );
   }
-
-//  GoodItem convertGoodItem(var itemData) {
-//    var xianjia = (double.parse(itemData['goods_price']) -
-//            double.parse(itemData['coupon_price']))
-//        .toStringAsFixed(2);
-//    return new GoodItem(
-//        title: itemData['goods_title'],
-//        sales: itemData['goods_sales'],
-//        couponPrice: itemData['coupon_price'],
-//        yuanjia: itemData['goods_price'],
-//        xianjia: xianjia,
-//        pic: itemData['goods_pic'],
-//        couponId: itemData['coupon_id'],
-//        goodId: itemData['goods_id']);
-//  }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_osc/constants/Constants.dart';
-import 'package:flutter_osc/events/ChangeThemeEvent.dart';
-import 'package:flutter_osc/util/DataUtils.dart';
-import 'package:flutter_osc/util/ThemeUtils.dart';
+import 'package:flutter_buy/constants/Constants.dart';
+import 'package:flutter_buy/events/ChangeThemeEvent.dart';
+import 'package:flutter_buy/util/DataUtils.dart';
+import 'package:flutter_buy/util/ThemeUtils.dart';
 
 class ChangeThemePage extends StatefulWidget {
   @override

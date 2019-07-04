@@ -1,18 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_osc/pages/HotSearchPage.dart';
-import 'package:flutter_osc/pages/SearchListPage.dart';
-import 'package:flutter_osc/util/ThemeUtils.dart';
+import 'package:flutter_buy/pages/HotSearchPage.dart';
+import 'package:flutter_buy/pages/SearchListPage.dart';
+import 'package:flutter_buy/util/ThemeUtils.dart';
 
-
-/*
- * <pre>
- *     @author yangchong
- *     blog  : https://github.com/yangchong211
- *     time  : 2018/11/18
- *     desc  : 搜索页面
- *     revise:
- * </pre>
- */
 class SearchPage extends  StatefulWidget{
 
   String search;
@@ -30,6 +20,7 @@ class SearchPage extends  StatefulWidget{
 class SearchState extends State<SearchPage> {
 
   TextEditingController searchController = new TextEditingController();
+  FocusNode _contentFocusNode = FocusNode();
   SearchListPage searchListPage;
   String search ;
 
@@ -41,6 +32,8 @@ class SearchState extends State<SearchPage> {
   Widget build(BuildContext context) {
     TextField searchField = initSearchText();
     bool a = searchController.text==null||searchController.text.isEmpty;
+    print('text:' + searchController.text);
+   //if(a) searchListPage = new SearchListPage(id:searchController.text);
     return new Scaffold(
       appBar: new AppBar(
         title: searchField,
@@ -48,7 +41,8 @@ class SearchState extends State<SearchPage> {
           new IconButton(
               icon: new Icon(Icons.search),
               onPressed: () {
-                changeContent();
+                _contentFocusNode.unfocus();
+                _onChangeContent(searchController.text);
               }),
           new IconButton(
               icon: new Icon(Icons.close),
@@ -71,7 +65,8 @@ class SearchState extends State<SearchPage> {
   void initState() {
     super.initState();
     searchController = new TextEditingController(text: search);
-    changeContent();
+//    changeContent();
+    _onChangeContent(searchController.text);
   }
 
   //改变内容
@@ -79,21 +74,31 @@ class SearchState extends State<SearchPage> {
     setState(() {
       //获取搜索的内容
       var text = searchController.text;
-      searchListPage = new SearchListPage(id:text);
+     // if(searchListPage==null){
+        searchListPage = new SearchListPage(id:searchController.text);
+    //  }
     });
   }
 
   TextField initSearchText() {
     TextField searchText = new TextField(
-      autofocus: true,
+      focusNode: _contentFocusNode,
       decoration: new InputDecoration(
         border: InputBorder.none,
         fillColor: ThemeUtils.colorWhite,
         hintText: '逗比，请输入搜索关键词',
       ),
       controller: searchController,
+      onChanged: _onChangeContent,
     );
     return searchText;
+  }
+
+
+  void _onChangeContent(String value){
+    setState(() {
+      searchListPage = new SearchListPage(id:value);
+    });
   }
 
 }

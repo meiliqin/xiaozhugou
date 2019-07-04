@@ -65,7 +65,8 @@ class SlideViewState extends State<SlideView> with SingleTickerProviderStateMixi
           child:
 //          new Stack(
 //            children: <Widget>[
-              new Image.network(imgUrl, width: MediaQuery.of(context).size.width, fit: BoxFit.contain),
+              new Image.network(imgUrl, width: MediaQuery.of(context).size.width, fit: BoxFit.fitWidth),
+
               /*new Container(
                 width: MediaQuery.of(context).size.width,
                 color: const Color(0x50000000),

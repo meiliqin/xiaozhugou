@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_osc/util/ThemeUtils.dart';
+import 'package:flutter_buy/util/ThemeUtils.dart';
 import '../model/GoodItem.dart';
 import '../constants/Constants.dart';
 

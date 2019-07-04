@@ -1,20 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_osc/constants/Constants.dart';
-import 'package:flutter_osc/events/ChangeThemeEvent.dart';
-import 'package:flutter_osc/util/DataUtils.dart';
-import 'package:flutter_osc/util/ThemeUtils.dart';
-import 'pages/NewsListPage.dart';
+import 'package:flutter_buy/util/ThemeUtils.dart';
 import 'pages/TaobaoPage.dart';
-import 'pages/TweetsListPage.dart';
 import 'pages/PinduoduoPage.dart';
 import 'pages/JingdongPage.dart';
-import 'pages/DiscoveryPage.dart';
 import 'pages/MyInfoPage.dart';
-import './widgets/MyDrawer.dart';
 import './widgets/SearchTextWidget.dart';
-import 'package:flutter_osc/util/ThemeUtils.dart';
 
 void main() {
   //强制竖屏
@@ -23,22 +15,18 @@ void main() {
     DeviceOrientation.portraitDown
   ]);
 
-  runApp(new MyOSCClient());
+  runApp(new MyAppClient());
 }
 
-class MyOSCClient extends StatefulWidget {
+class MyAppClient extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => new MyOSCClientState();
+  State<StatefulWidget> createState() => new MyAppClientState();
 }
 
-class MyOSCClientState extends State<MyOSCClient> {
+class MyAppClientState extends State<MyAppClient> {
   final appBarTitles = ['淘宝', '拼多多','京东',  '我的'];
-  final tabTextStyleSelected = new TextStyle(color: ThemeUtils.emphasizeColor);
-  final tabTextStyleNormal = new TextStyle(color: const Color(0xff969696));
 
-  Color themeColor = ThemeUtils.currentColorTheme;
   int _tabIndex = 0;
-
   var tabImages;
   var _body;
   var pages;
@@ -50,18 +38,6 @@ class MyOSCClientState extends State<MyOSCClient> {
   @override
   void initState() {
     super.initState();
-    DataUtils.getColorThemeIndex().then((index) {
-      print('color theme index = $index');
-      if (index != null) {
-        ThemeUtils.currentColorTheme = ThemeUtils.supportColors[index];
-        Constants.eventBus.fire(new ChangeThemeEvent(ThemeUtils.supportColors[index]));
-      }
-    });
-    Constants.eventBus.on<ChangeThemeEvent>().listen((event) {
-      setState(() {
-        themeColor = event.color;
-      });
-    });
     pages = <Widget>[
       new TaobaoPage(),
       new PinduoduoPage(),
@@ -92,9 +68,9 @@ class MyOSCClientState extends State<MyOSCClient> {
 
   TextStyle getTabTextStyle(int curIndex) {
     if (curIndex == _tabIndex) {
-      return tabTextStyleSelected;
+      return ThemeUtils.tabTextStyleSelected;
     }
-    return tabTextStyleNormal;
+    return ThemeUtils.tabTextStyleNormal;
   }
 
   Image getTabIcon(int curIndex) {
@@ -116,7 +92,7 @@ class MyOSCClientState extends State<MyOSCClient> {
     );
     return new MaterialApp(
       theme: new ThemeData(
-          primaryColor: themeColor
+          primaryColor: ThemeUtils.currentColorTheme
       ),
       home: new Scaffold(
         appBar: new AppBar(

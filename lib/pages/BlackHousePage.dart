@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_osc/constants/Constants.dart';
-import 'package:flutter_osc/events/LoginEvent.dart';
-import 'package:flutter_osc/pages/NewLoginPage.dart';
-import 'package:flutter_osc/util/BlackListUtils.dart';
+import 'package:flutter_buy/constants/Constants.dart';
+import 'package:flutter_buy/events/LoginEvent.dart';
+import 'package:flutter_buy/pages/NewLoginPage.dart';
+import 'package:flutter_buy/util/BlackListUtils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../util/NetUtils.dart';
 import '../api/Api.dart';

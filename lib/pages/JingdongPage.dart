@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_osc/util/ThemeUtils.dart';
+import 'package:flutter_buy/util/ThemeUtils.dart';
 
 class JingdongPage extends StatefulWidget {
   @override

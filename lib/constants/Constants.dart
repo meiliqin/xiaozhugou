@@ -17,27 +17,27 @@ class Constants {
   static final List LUN_BO_MAP = [
     {
       "imgUrl":
-          "http://thumbnail.qingtaoke.com/img/xca/201709/2017091215350228376023.jpg",
+          "https://ok.166.net/reunionpub/1_20190703_16bb7252e75655276.jpeg",
       "scid": "546649971707"
     },
     {
       "imgUrl":
-          "http://thumbnail.qingtaoke.com/img/xca/201709/2017091413595259965613.jpg",
+          "https://ok.166.net/reunionpub/1_20190703_16bb7252e75422475.jpeg",
       "scid": "546649971707"
     },
     {
       "imgUrl":
-          "http://thumbnail.qingtaoke.com/img/xca/201709/2017091309075743932784.jpg",
+          "https://ok.166.net/reunionpub/1_20190703_16bb7252e75426037.jpeg",
       "scid": "546649971707"
     },
     {
       "imgUrl":
-          "http://thumbnail.qingtaoke.com/img/xca/201709/2017091417043034107372.jpg",
+          "https://ok.166.net/reunionpub/1_20190703_16bb7252e75422673.jpeg",
       "scid": "546649971707"
     },
     {
       "imgUrl":
-          "http://thumbnail.qingtaoke.com/img/xca/201709/2017091414330460895798.jpg",
+          "https://ok.166.net/reunionpub/1_20190703_16bb7252e75907127.jpeg",
       "scid": "546649971707"
     }
   ];

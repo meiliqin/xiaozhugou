@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_osc/constants/Constants.dart';
-import 'package:flutter_osc/events/LoginEvent.dart';
-import 'package:flutter_osc/events/LogoutEvent.dart';
-import 'package:flutter_osc/pages/NewLoginPage.dart';
-import 'package:flutter_osc/util/Utf8Utils.dart';
+import 'package:flutter_buy/constants/Constants.dart';
+import 'package:flutter_buy/events/LoginEvent.dart';
+import 'package:flutter_buy/events/LogoutEvent.dart';
+import 'package:flutter_buy/pages/NewLoginPage.dart';
+import 'package:flutter_buy/util/Utf8Utils.dart';
 import '../util/BlackListUtils.dart';
 import '../api/Api.dart';
 import '../util/NetUtils.dart';

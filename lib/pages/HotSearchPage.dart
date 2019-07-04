@@ -2,20 +2,10 @@ import 'package:flutter/material.dart';
 import '../api/Api.dart';
 import '../util/NetUtils.dart';
 import 'dart:convert';
-import 'package:flutter_osc/util/ThemeUtils.dart';
-import 'package:flutter_osc/pages/SearchPage.dart';
-
-/*
- * <pre>
- *     @author yangchong
- *     blog  : https://github.com/yangchong211
- *     time  : 2018/11/18
- *     desc  : 热门搜索页面
- *     revise:
- * </pre>
- */
-final TextStyle emphasizeStyle_1=
-new TextStyle(color: const Color(0xFFFD8144), fontSize: 15.0);
+import 'package:flutter_buy/util/ThemeUtils.dart';
+import 'package:flutter_buy/pages/SearchPage.dart';
+//final TextStyle emphasizeStyle_1=
+//new TextStyle(color: const Color(0xFFFD8144), fontSize: 15.0);
 final TextStyle searchTextStyle = new TextStyle(color: const Color(0xFF000000), fontSize: 12.0);
 
 class HotSearchPage extends StatefulWidget {
@@ -32,8 +22,8 @@ class HotSearchPageState extends State<HotSearchPage> {
 
   @override
   void initState() {
-    super.initState();
 
+    super.initState();
     //获取热门关键字
     getHotKeywords();
   }
@@ -45,7 +35,7 @@ class HotSearchPageState extends State<HotSearchPage> {
         new Padding(
             padding: EdgeInsets.all(10.0),
             child: new Text('热门搜索',
-                style: emphasizeStyle_1)),
+                style: ThemeUtils.emphasizeStyle)),
         Padding(
           padding: const EdgeInsets.all(10.0),
           child: new Wrap(
@@ -57,7 +47,7 @@ class HotSearchPageState extends State<HotSearchPage> {
         new Padding(
             padding: EdgeInsets.all(10.0),
             child: new Text('搜索历史',
-                style: emphasizeStyle_1)),
+                style: ThemeUtils.emphasizeStyle)),
         Padding(
           padding: const EdgeInsets.all(10.0),
           child: new Wrap(
@@ -87,23 +77,26 @@ class HotSearchPageState extends State<HotSearchPage> {
           hotWidgets.clear();
           print('showdHotList:' + showdHotList.length.toString());
 
-          for (var value in showdHotList) {
-            Widget actionChip = new ActionChip(
-                backgroundColor: ThemeUtils.currentColorTheme,
-                padding: EdgeInsets.all(1.0),
-                label: new Text(
-                  value['word'],
-                  style: searchTextStyle,
-                ),
-                onPressed: () {
-                Navigator
-                    .of(context)
-                    .pushReplacement(new MaterialPageRoute(builder: (context) {
-                  return new SearchPage(value['word']);
-                }));
-                });
-            hotWidgets.add(actionChip);
-          }
+          setState(() {
+            for (var value in showdHotList) {
+              Widget actionChip = new ActionChip(
+                  backgroundColor: ThemeUtils.currentColorTheme,
+                  padding: EdgeInsets.all(1.0),
+                  label: new Text(
+                    value['word'],
+                    style: searchTextStyle,
+                  ),
+                  onPressed: () {
+                    Navigator
+                        .of(context)
+                        .pushReplacement(new MaterialPageRoute(builder: (context) {
+                      return new SearchPage(value['word']);
+                    }));
+                  });
+              hotWidgets.add(actionChip);
+            }
+          });
+
         }
       }
     });

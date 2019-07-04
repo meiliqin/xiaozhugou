@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_osc/pages/SearchPage.dart';
+import 'package:flutter_buy/pages/SearchPage.dart';
 
 class SearchTextWidget extends StatelessWidget {
   final TextStyle subtitleStyle =
@@ -23,7 +23,6 @@ class SearchTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return new GestureDetector(
         onTap: () {
-          print("Container clicked");
           Navigator.of(context).push(new MaterialPageRoute(
               builder: (ctx) => new SearchPage("")));
         },

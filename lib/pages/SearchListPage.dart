@@ -1,24 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_osc/util/NetUtils.dart';
-import 'package:flutter_osc/api/Api.dart';
+import 'package:flutter_buy/util/NetUtils.dart';
+import 'package:flutter_buy/api/Api.dart';
 import 'dart:convert';
 import '../constants/Constants.dart';
 import '../widgets/CommonEndLine.dart';
-import 'package:flutter_osc/util/ThemeUtils.dart';
+import 'package:flutter_buy/util/ThemeUtils.dart';
 import '../pages/GoodDetailPage.dart';
 import '../model/GoodItem.dart';
 
-/*
- * <pre>
- *     @author yangchong
- *     blog  : https://github.com/yangchong211
- *     time  : 2018/11/18
- *     desc  : 搜索页面
- *     revise:
- * </pre>
- */
 class SearchListPage extends StatefulWidget {
   
   String id;
