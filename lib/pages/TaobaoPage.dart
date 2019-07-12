@@ -72,39 +72,27 @@ class TaobaoPageState extends State<TaobaoPage> {
   getDataList(bool isLoadMore) {
     String url = Api.TAO_BAO_LIST;
     url += "&page=$curPage";
+    print('url:' + url);
     NetUtils.get(url).then((data) {
       if (data != null) {
         // 将接口返回的json字符串解析为map类型
         Map<String, dynamic> map = json.decode(data);
         if (map['er_code'] == 10000) {
-          print('url:' + url);
-          // code=0表示请求成功
           var data = map['data'];
-          // total表示资讯总条数
           listTotalSize = data['total'];
-          // data为数据内容，其中包含slide和news两部分，分别表示头部轮播图数据，和下面的列表数据
           var _listData = data['list'];
           var _slideData = Constants.LUN_BO_MAP;
           setState(() {
+            //通过setState方法更新数据,setState告诉flutter,这个state中的值发生变化，应该调用build更新界面
             if (!isLoadMore) {
-              // 不是加载更多，则直接为变量赋值
               listData = _listData;
               slideData = _slideData;
             } else {
-              // 是加载更多，则需要将取到的news数据追加到原来的数据后面
-              List list1 = new List();
-              // 添加原来的数据
-              list1.addAll(listData);
-              // 添加新取到的数据
-              list1.addAll(_listData);
+              listData.addAll(_listData);
               // 判断是否获取了所有的数据，如果是，则需要显示底部的"我也是有底线的"布局
-              if (list1.length >= listTotalSize) {
-                list1.add(Constants.END_LINE_TAG);
+              if (listData.length >= listTotalSize) {
+                listData.add(Constants.END_LINE_TAG);
               }
-              // 给列表数据赋值
-              listData = list1;
-              // 轮播图数据
-              //slideData = _slideData;
             }
             initSlider();
           });

@@ -17,23 +17,16 @@ void main() {
 
   runApp(new MyAppClient());
 }
-
 class MyAppClient extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => new MyAppClientState();
 }
-
 class MyAppClientState extends State<MyAppClient> {
   final appBarTitles = ['淘宝', '拼多多','京东',  '我的'];
-
   int _tabIndex = 0;
   var tabImages;
   var _body;
   var pages;
-
-  Image getTabImage(path) {
-    return new Image.asset(path, width: 20.0, height: 20.0);
-  }
 
   @override
   void initState() {
@@ -44,44 +37,7 @@ class MyAppClientState extends State<MyAppClient> {
       new JingdongPage(),
       new MyInfoPage()
     ];
-    if (tabImages == null) {
-      tabImages = [
-        [
-          getTabImage('images/ic_nav_tb.png'),
-          getTabImage('images/ic_nav_tb.png')
-        ],
-        [
-          getTabImage('images/ic_nav_pd.png'),
-          getTabImage('images/ic_nav_pd.png')
-        ],
-        [
-          getTabImage('images/ic_nav_jd.png'),
-          getTabImage('images/ic_nav_jd.png')
-        ],
-        [
-          getTabImage('images/ic_zhu.png'),
-          getTabImage('images/ic_zhu.png')
-        ]
-      ];
-    }
-  }
-
-  TextStyle getTabTextStyle(int curIndex) {
-    if (curIndex == _tabIndex) {
-      return ThemeUtils.tabTextStyleSelected;
-    }
-    return ThemeUtils.tabTextStyleNormal;
-  }
-
-  Image getTabIcon(int curIndex) {
-    if (curIndex == _tabIndex) {
-      return tabImages[curIndex][1];
-    }
-    return tabImages[curIndex][0];
-  }
-
-  Text getTabTitle(int curIndex) {
-    return new Text(appBarTitles[curIndex], style: getTabTextStyle(curIndex));
+   initTabImage();
   }
 
   @override
@@ -96,10 +52,7 @@ class MyAppClientState extends State<MyAppClient> {
       ),
       home: new Scaffold(
         appBar: new AppBar(
-          //title: new Text(appBarTitles[_tabIndex],
           title: SearchTextWidget(),
-          //style: new TextStyle(color: Colors.white)),
-          //iconTheme: new IconThemeData(color: Colors.white)
         ),
         body: _body,
         bottomNavigationBar: new CupertinoTabBar(
@@ -124,9 +77,49 @@ class MyAppClientState extends State<MyAppClient> {
             });
           },
         ),
-        //drawer: new MyDrawer()
       ),
     );
+  }
+
+  TextStyle getTabTextStyle(int curIndex) {
+    if (curIndex == _tabIndex) {
+      return ThemeUtils.tabTextStyleSelected;
+    }
+    return ThemeUtils.tabTextStyleNormal;
+  }
+  Image getTabIcon(int curIndex) {
+    if (curIndex == _tabIndex) {
+      return tabImages[curIndex][1];
+    }
+    return tabImages[curIndex][0];
+  }
+  Text getTabTitle(int curIndex) {
+    return new Text(appBarTitles[curIndex], style: getTabTextStyle(curIndex));
+  }
+  Image getTabImage(path) {
+    return new Image.asset(path, width: 20.0, height: 20.0);
+  }
+  void initTabImage(){
+    if (tabImages == null) {
+      tabImages = [
+        [
+          getTabImage('images/ic_nav_tb.png'),
+          getTabImage('images/ic_nav_tb.png')
+        ],
+        [
+          getTabImage('images/ic_nav_pd.png'),
+          getTabImage('images/ic_nav_pd.png')
+        ],
+        [
+          getTabImage('images/ic_nav_jd.png'),
+          getTabImage('images/ic_nav_jd.png')
+        ],
+        [
+          getTabImage('images/ic_zhu.png'),
+          getTabImage('images/ic_zhu.png')
+        ]
+      ];
+    }
   }
 }
 

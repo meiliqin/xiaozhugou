@@ -100,8 +100,13 @@ class SearchListPageState extends State<SearchListPage> {
       ],
     );
 
-    var xianjia = double.parse(itemData['goods_price']) -
-        double.parse(itemData['coupon_price']);
+//    var xianjia = double.parse(itemData['goods_price']) -
+//        double.parse(itemData['coupon_price']);
+
+    var xianjia = (double.parse(itemData['goods_price']) -
+        double.parse(itemData['coupon_price']))
+        .toStringAsFixed(2);
+
     var priceRow = new Row(
       children: <Widget>[
         new Image.asset('./images/ic_quan.png', width: 17, height: 12),
