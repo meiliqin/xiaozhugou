@@ -1,9 +1,7 @@
 name: flutter_buy
 description: An Flutter application.
-version: 1.0.0+1
+version: 1.0.0
 
-environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -25,44 +23,14 @@ flutter:
   uses-material-design: true
   assets:
     - images/ic_avatar_default.png
-    - images/ic_nav_news_normal.png
-    - images/ic_nav_news_actived.png
-    - images/ic_nav_tweet_normal.png
-    - images/ic_nav_tweet_actived.png
-    - images/ic_nav_discover_normal.png
-    - images/ic_nav_discover_actived.png
-    - images/ic_nav_my_normal.png
-    - images/ic_nav_my_pressed.png
     - images/ic_nav_tb.png
     - images/ic_nav_pd.png
     - images/ic_nav_jd.png
     - images/ic_zhu.png
-    - images/ic_discover_gist.png
-    - images/ic_discover_git.png
-    - images/ic_discover_nearby.png
-    - images/ic_discover_pos.png
-    - images/ic_discover_scan.png
-    - images/ic_discover_shake.png
-    - images/ic_discover_softwares.png
-    - images/ic_arrow_right.png
-    - images/ic_my_blog.png
-    - images/ic_my_message.png
-    - images/ic_my_question.png
-    - images/ic_my_recommend.png
-    - images/ic_my_team.png
-    - images/ic_test.png
-    - images/ic_hongshu.jpg
-    - images/ic_img_default.jpg
-    - images/ic_comment.png
-    - images/cover_img.jpg
-    - images/leftmenu/ic_xiaoheiwu.png
-    - images/leftmenu/ic_fabu.png
-    - images/leftmenu/ic_about.png
-    - images/leftmenu/ic_settings.png
-    - images/ic_osc_logo.png
-    - images/ic_add_pics.png
     - images/ic_quan.png
     - images/bg_quan.jpg
+
+
     - images/meis.png
     - images/meiz.png
     - images/muy.png
@@ -74,5 +42,12 @@ flutter:
     - images/xiebao.png
     - images/neiy.png
     - images/nanz.png
+
+    - images/ic_arrow_right.png
+    - images/ic_my_blog.png
+    - images/ic_my_message.png
+    - images/ic_my_question.png
+    - images/ic_my_recommend.png
+    - images/ic_my_team.png
 
 
