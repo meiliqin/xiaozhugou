@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_buy/constants/Constants.dart';
-import 'package:flutter_buy/events/LoginEvent.dart';
-import 'package:flutter_buy/pages/NewLoginPage.dart';
 import 'package:flutter_buy/util/BlackListUtils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../util/NetUtils.dart';
 import '../api/Api.dart';
 import 'dart:convert';
-import '../pages/LoginPage.dart';
 import '../util/DataUtils.dart';
 import '../util/Utf8Utils.dart';
 
@@ -153,14 +149,14 @@ class BlackHousePageState extends State<BlackHousePage> {
             ),
           ),
           onTap: () async {
-            final result = await Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) {
-              return NewLoginPage();
-            }));
-            if (result != null && result == "refresh") {
-              // 通知动弹页面刷新
-              Constants.eventBus.fire(new LoginEvent());
-              getUserInfo();
-            }
+//            final result = await Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) {
+//              return NewLoginPage();
+//            }));
+//            if (result != null && result == "refresh") {
+//              // 通知动弹页面刷新
+//              Constants.eventBus.fire(new LoginEvent());
+//              getUserInfo();
+//            }
           },
         ),
       );

@@ -5,8 +5,6 @@ import 'package:flutter_buy/events/LoginEvent.dart';
 import 'package:flutter_buy/events/LogoutEvent.dart';
 import 'package:flutter_buy/util/ThemeUtils.dart';
 import '../pages/CommonWebPage.dart';
-import '../pages/LoginPage.dart';
-import '../pages/NewLoginPage.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../api/Api.dart';
@@ -127,18 +125,18 @@ class MyInfoPageState extends State<MyInfoPage> {
 
   _login() async {
     // 打开登录页并处理登录成功的回调
-    final result = await Navigator
-        .of(context)
-        .push(new MaterialPageRoute(builder: (context) {
-      return new NewLoginPage();
-    }));
-    // result为"refresh"代表登录成功
-    if (result != null && result == "refresh") {
-      // 刷新用户信息
-      getUserInfo();
-      // 通知动弹页面刷新
-      Constants.eventBus.fire(new LoginEvent());
-    }
+//    final result = await Navigator
+//        .of(context)
+//        .push(new MaterialPageRoute(builder: (context) {
+//      return new NewLoginPage();
+//    }));
+//    // result为"refresh"代表登录成功
+//    if (result != null && result == "refresh") {
+//      // 刷新用户信息
+//      getUserInfo();
+//      // 通知动弹页面刷新
+//      Constants.eventBus.fire(new LoginEvent());
+//    }
   }
 
   _showUserInfoDetail() {}

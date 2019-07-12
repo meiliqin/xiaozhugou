@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../pages/NewsDetailPage.dart';
 import 'SlideViewIndicator.dart';
 
 class SlideView extends StatefulWidget {
